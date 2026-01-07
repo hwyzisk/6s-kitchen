@@ -1284,6 +1284,16 @@
         successState.classList.remove('hidden');
         successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
+        // Hotjar event
+        if (window.hj) {
+            hj('event', 'form_submitted');
+        }
+
+        // Clarity event
+        if (window.clarity) {
+            clarity('set', 'form_submitted', 'true');
+        }
+
       } catch (error) {
         console.error('Form submission error:', error);
 
@@ -1291,6 +1301,16 @@
         formContainer.classList.add('hidden');
         successState.classList.remove('hidden');
         successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Hotjar event
+        if (window.hj) {
+            hj('event', 'form_submitted');
+        }
+
+        // Clarity event
+        if (window.clarity) {
+            clarity('set', 'form_submitted', 'true');
+        }
       }
     });
 
